@@ -1,0 +1,57 @@
+### Hello endpoint
+GET http://localhost:8080/hello/Aleksandar
+
+### List all groups
+GET http://localhost:8080/api/groups
+
+### Create a new group
+POST http://localhost:8080/api/groups
+Content-Type: application/json
+
+{
+  "id": {
+    "value": "g9"
+  },
+  "name": "New group",
+  "members": [
+    {
+      "value": "u1"
+    },
+    {
+      "value": "u9"
+    }
+  ]
+}
+
+### List expenses for g1
+GET http://localhost:8080/api/groups/g1/expenses
+
+### Create new expense for g1
+POST http://localhost:8080/api/groups/g1/expenses
+Content-Type: application/json
+
+{
+  "id": {
+    "value": "e9"
+  },
+  "groupId": {
+    "value": "ignored"
+  },
+  "payer": {
+    "value": "u1"
+  },
+  "amount": 19.99,
+  "currency": "EUR",
+  "participants": [
+    {
+      "value": "u1"
+    },
+    {
+      "value": "u2"
+    }
+  ],
+  "note": "test expense"
+}
+
+### Get settlements for g1
+GET http://localhost:8080/api/groups/g1/settlements
